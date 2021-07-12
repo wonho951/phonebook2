@@ -40,7 +40,7 @@ public class PhoneController extends HttpServlet {
 		
 		
 		//html작업 --> jsp에게 시킨다. --> forword(포워드) : 내부 직원끼리 일을 넘김.
-		RequestDispatcher rd = request.getRequestDispatcher("/list.jsp");	//포워드로 할 수 있는 애들 달라는 뜻.
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");	//포워드로 할 수 있는 애들 달라는 뜻.
 		rd.forward(request, response);
 		//위 두개가 한 세트.
 		
