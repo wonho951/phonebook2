@@ -1,4 +1,5 @@
-<!-- WEB-INF -> 사용자가 접근하지 못하게끔 보호해주는 영역이기 때문에 이 폴더 안에 jsp파일 만들어준다.  -->
+<!-- WEB-INF -> 사용자가 접근하지 못하게끔 보호해주는 영역이기 때문에 이 폴더 안에 jsp파일 만들어준다. 
+				사용자는 무조건 컨트롤러를 통해서만 접근 가능. -->
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
