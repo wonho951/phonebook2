@@ -53,5 +53,7 @@
 	</table>
 	<br>
 	<% } %>
+	
+	<a href="/phonebook2/pbc?action=uform">추가번호 등록</a>
 </body>
 </html>

@@ -82,13 +82,32 @@ public class PhoneController extends HttpServlet {
 			
 			//리다이렉트 시킨다.	--> 리스트로 다시 보냄.
 			response.sendRedirect("/phonebook2/pbc?action=list");	//--> model2에서는 주소체계가 조금 바뀜.
+									// 위 주소로 이동함. 그냥 pbc아님.
+		}else if("delete".equals(action)) {
+			System.out.println("[삭제]");
 			
-
+			
+			PhoneDao phoneDao = new PhoneDao();
+			int personId = Integer.parseInt(request.getParameter("id"));
+			
+			int count = phoneDao.personDelete(personId);
+			
+			response.sendRedirect("/phonebook2/pbc?action=list");
+			
+		} else if("uform".equals(action)) {
+			System.out.println("수정폼");
+			
+			
+			PhoneDao phoneDao = new PhoneDao();
+			
+			int personId = Integer.parseInt(request.getParameter("id"));
+			
+			PersonVo personVo = phoneDao.getPerson(personId);
+			
+					    
+		} else if ("update".equals(action)) {
+			
 		}
-		
-		
-		
-		
 		
 		
 		
