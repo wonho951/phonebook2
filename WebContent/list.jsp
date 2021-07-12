@@ -24,8 +24,25 @@
 		<tr>
 			<td>회사</td>
 			<td>02-9999-9999</td>
+		</tr>	
+	</table>
+	<br>
+	
+	<table border = "1">
+		<tr>
+			<td>이름</td>
+			<td>정우성</td>
 		</tr>
 	
+		<tr>
+			<td>핸드폰</td>
+			<td>010-3333-3333</td>
+		</tr>
+	
+		<tr>
+			<td>회사</td>
+			<td>02-8888-8888</td>
+		</tr>	
 	</table>
 
 
