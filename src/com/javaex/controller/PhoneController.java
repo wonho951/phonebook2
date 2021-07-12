@@ -3,6 +3,7 @@ package com.javaex.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,19 @@ public class PhoneController extends HttpServlet {
 		System.out.println(personList);
 		
 		
-		//html작업 --> jsp에게 시킨다.
+		//데이터를 넣어줌. --> request에 어트리뷰트(Attribute)에 데이터를 넣어준다.
+		request.setAttribute("pList", personList); 	// pList는 이름 지어준거.
+		
+		
+		//html작업 --> jsp에게 시킨다. --> forword(포워드) : 내부 직원끼리 일을 넘김.
+		RequestDispatcher rd = request.getRequestDispatcher("/list.jsp");	//포워드로 할 수 있는 애들 달라는 뜻.
+		rd.forward(request, response);
+		//위 두개가 한 세트.
+		
+		
+		
+		
+		
 	}
 
 	

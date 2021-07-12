@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ page import="java.util.List" %>
+<%@ page import="com.javaex.vo.PersonVo" %>    
+    
+<%
+	//request 안에 데이터 사용 --> pList
+	 List<PersonVo> personList = (List<PersonVo>)request.getAttribute("pList");	//그냥 꺼내올수 없어서 형변환을 해줌.
+	
+%>    
 <!DOCTYPE html>
 <html>
 <head>
