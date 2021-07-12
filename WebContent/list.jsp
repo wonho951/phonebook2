@@ -6,9 +6,31 @@
     
 <%
 	//request 안에 데이터 사용 --> pList
-	 List<PersonVo> personList = (List<PersonVo>)request.getAttribute("pList");	//그냥 꺼내올수 없어서 형변환을 해줌.
+	List<PersonVo> personList = (List<PersonVo>)request.getAttribute("pList");	//그냥 꺼내올수 없어서 형변환을 해줌.
+	
+	
+	System.out.println("jsp-------------------------");
+	System.out.println(personList);
+	
+	/*	형변환 설명때문에 하신거.
+	int age = (int)request.getAttribute("age");	//int형이기 때문에 int로 형변환 해줌
+	String name = (String)request.getAttribute("name");	//String형이기 때문에 String으로 형변환 해줌.
+		
+	System.out.println(age + ", " + name);
+	*/
+	
+	
+	
 	
 %>    
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>

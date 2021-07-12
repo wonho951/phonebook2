@@ -25,11 +25,18 @@ public class PhoneController extends HttpServlet {
 		PhoneDao phoneDao = new PhoneDao();	//메모리에 Dao올린다.
 		List<PersonVo> personList = phoneDao.getPersonList();
 		
+		System.out.println("controller-------------------------");
 		System.out.println(personList);
 		
 		
 		//데이터를 넣어줌. --> request에 어트리뷰트(Attribute)에 데이터를 넣어준다.
 		request.setAttribute("pList", personList); 	// pList는 이름 지어준거.
+		
+		/*	형변환 설명때문에 해본거.
+		request.setAttribute("age", 30);
+		request.setAttribute("name", "최원호");
+		*/
+		
 		
 		
 		//html작업 --> jsp에게 시킨다. --> forword(포워드) : 내부 직원끼리 일을 넘김.
