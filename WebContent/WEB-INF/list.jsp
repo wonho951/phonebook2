@@ -50,10 +50,14 @@
 			<td>회사</td>
 			<td><%= personList.get(i).getCompany() %></td>
 		</tr>	
+		<tr>
+			<td><a href = "/phonebook2/pbc?action=uform&id=<%= personList.get(i).getPersonId() %>">수정</a></td>
+			<td><a href = "/phonebook2/pbc?action=delete&id=<%= personList.get(i).getPersonId() %>">삭제</a></td>
+		</tr>
 	</table>
 	<br>
 	<% } %>
 	
-	<a href="/phonebook2/pbc?action=uform">추가번호 등록</a>
+	<a href="/phonebook2/pbc?action=wform">추가번호 등록</a>
 </body>
 </html>
