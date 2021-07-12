@@ -59,6 +59,31 @@ public class PhoneController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/writeForm.jsp");//WEB-INF 에 넣어주면 jsp파일을 보호할 수 있다.--> 사용자가 주소를 알아낸다 한들 접근 불가능하다.
 			rd.forward(request, response);
 			
+		}else if ("insert".equals(action)) {
+			System.out.println("[저장]");
+			
+			//Dao --> 저장
+			//파라미터를 꺼낸다(name, hp, company)
+			String name = request.getParameter("name");
+			String hp = request.getParameter("hp");
+			String company = request.getParameter("company");
+			
+			
+			//vo로 묶어준다
+			PersonVo personVo = new PersonVo(name, hp, company);
+			System.out.println(personVo);
+			
+			//Dao에 personInsert(vo)-->해줌.
+			PhoneDao phoneDao = new PhoneDao();
+			int count = phoneDao.personInsert(personVo);
+			
+			System.out.println(count);
+			
+			
+			//리다이렉트 시킨다.	--> 리스트로 다시 보냄.
+			response.sendRedirect("/phonebook2/pbc?action=list");	//--> model2에서는 주소체계가 조금 바뀜.
+			
+
 		}
 		
 		
