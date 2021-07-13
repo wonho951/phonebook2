@@ -94,14 +94,15 @@ public class PhoneController extends HttpServlet {
 			
 			response.sendRedirect("/phonebook2/pbc?action=list");
 			
-		} else if("uform".equals(action)) {
+		} /* 이건 내가 잘못한거.
+			else if("uform".equals(action)) {
 			System.out.println("수정폼");
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");
 			rd.forward(request, response);
 			
 					    
-		} else if ("update".equals(action)) {
+		}*/ else if ("update".equals(action)) {
 			System.out.println("수정");
 			
 			PhoneDao phoneDao = new PhoneDao();
@@ -118,8 +119,26 @@ public class PhoneController extends HttpServlet {
 			
 			
 			response.sendRedirect("/phonebook2/pbc?action=list");
+		} else if("uform".equals(action)) {
+	         System.out.println("[수정폼]");
+	         
+	         PhoneDao phoneDao = new PhoneDao();   
+	
+	         //id추출
+	         int personId = Integer.parseInt(request.getParameter("id"));
+	         System.out.println(personId); // 확인용
+	         
+	         //dao 에서 한사람(id)의 정보 가져오기
+	         PersonVo personVo = phoneDao.getPerson(personId);
+	         System.out.println(personVo.toString()); // 확인용
+	         
+	         //데이터 넣기  --request 어트리뷰트에 데이터를 넣어준다
+	         request.setAttribute("pVo", personVo);
+	         
+	         
+	         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");
+	         rd.forward(request, response);
 		}
-		
 		
 		
 	}
