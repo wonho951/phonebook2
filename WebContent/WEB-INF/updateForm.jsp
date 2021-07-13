@@ -6,12 +6,15 @@
 
 <% 
 
-	PhoneDao phoneDao = new PhoneDao();
+	/*PhoneDao phoneDao = new PhoneDao();
 	
 	String id =request.getParameter("id");
 	int personId = Integer.parseInt(id);
 	
-	PersonVo personVo = phoneDao.getPerson(personId);
+	PersonVo personVo = phoneDao.getPerson(personId);*/
+	
+	
+	PersonVo personVo = (PersonVo)request.getAttribute("pVo");	//일케 해야됨.
 
 
 %>    

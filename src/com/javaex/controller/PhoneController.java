@@ -119,7 +119,8 @@ public class PhoneController extends HttpServlet {
 			
 			
 			response.sendRedirect("/phonebook2/pbc?action=list");
-		} else if("uform".equals(action)) {
+			
+		} else if("uform".equals(action)) {	//이렇게 해야됨
 	         System.out.println("[수정폼]");
 	         
 	         PhoneDao phoneDao = new PhoneDao();   
