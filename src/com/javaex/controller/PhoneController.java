@@ -3,7 +3,6 @@ package com.javaex.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -107,7 +106,9 @@ public class PhoneController extends HttpServlet {
 			
 			int count = phoneDao.personDelete(personId);
 			
-			response.sendRedirect("/phonebook2/pbc?action=list");
+			//response.sendRedirect("/phonebook2/pbc?action=list");
+			
+			WebUtil.redirect(request, response, "phonebook2/pbc?action=list");
 			
 		} /* 이건 내가 잘못한거.
 			else if("uform".equals(action)) {
@@ -133,7 +134,10 @@ public class PhoneController extends HttpServlet {
 			phoneDao.personUpdate(personVo);
 			
 			
-			response.sendRedirect("/phonebook2/pbc?action=list");
+			//response.sendRedirect("/phonebook2/pbc?action=list");
+			
+			WebUtil.redirect(request, response, "/phonebook2/pbc?action=list");
+			
 			
 		} else if("uform".equals(action)) {	//이렇게 해야됨
 	         System.out.println("[수정폼]");
@@ -152,8 +156,12 @@ public class PhoneController extends HttpServlet {
 	         request.setAttribute("pVo", personVo);
 	         
 	         
+	         /*
 	         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/updateForm.jsp");
 	         rd.forward(request, response);
+	         */
+	         
+	         WebUtil.forword(request, response, "/WEB-INF/updateForm.jsp");
 		}
 		
 		

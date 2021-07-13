@@ -21,7 +21,7 @@ public class WebUtil {
 	
 	public static void forword(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
 		
 	}
