@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaex.dao.PhoneDao;
+import com.javaex.util.WebUtil;
 import com.javaex.vo.PersonVo;
 
 @WebServlet("/pbc")	//	<-- 요청을 할수 있는 주소가 있어야함.
@@ -46,18 +47,27 @@ public class PhoneController extends HttpServlet {
 			*/
 			
 			
+			/*
 			//html작업 --> jsp에게 시킨다. --> forword(포워드) : 내부 직원끼리 일을 넘김.
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");	//포워드로 할 수 있는 애들 달라는 뜻.
 																//WEB-INF 에 넣어주면 jsp파일을 보호할 수 있다.--> 사용자가 주소를 알아낸다 한들 접근 불가능하다.
 			rd.forward(request, response);
-			//위 두개가 한 세트.
+			//위 두개가 한 세트.*/
+			
+			
+			
+			WebUtil.forword(request, response, "/WEB-INF/list.jsp");
 			
 		} else if ("wform".equals(action)) {
 			System.out.println("[글쓰기폼]");
 			
+			/*
 			//wireteForm.jsp --> 포워드해줌. --> 데이터 줄게 없음. 어트리뷰트 안해도 됨.
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/writeForm.jsp");//WEB-INF 에 넣어주면 jsp파일을 보호할 수 있다.--> 사용자가 주소를 알아낸다 한들 접근 불가능하다.
 			rd.forward(request, response);
+			*/
+			
+			WebUtil.forword(request, response, "/WEB-INF/writeForm.jsp");
 			
 		}else if ("insert".equals(action)) {
 			System.out.println("[저장]");
@@ -79,10 +89,15 @@ public class PhoneController extends HttpServlet {
 			
 			System.out.println(count);
 			
-			
+			/*
 			//리다이렉트 시킨다.	--> 리스트로 다시 보냄.
 			response.sendRedirect("/phonebook2/pbc?action=list");	//--> model2에서는 주소체계가 조금 바뀜.
 									// 위 주소로 이동함. 그냥 pbc아님.
+			*/
+			
+			
+			WebUtil.redirect(request, response, "/phonebook2/pbc?action=list");
+			
 		}else if("delete".equals(action)) {
 			System.out.println("[삭제]");
 			
